@@ -1,13 +1,12 @@
+import os
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
-
-data = pd.read_csv("Smarket.csv")
+path = 'D:/STUDY/Self Study/3.MachineLearning_and_DataScience/Python/x.Project/ml_app_knn_clsf'
+data = pd.read_csv(path + "Smarket.csv")
 
 
 def chg_dtyp(df):
