@@ -35,4 +35,4 @@ new_val = np.array([[Lag1, Lag2, Lag3, Lag4, Lag5, Volume, Today]])
 
 prediction = knn.predict(new_val)
 
-print(prediction)
+print(''.join(prediction))
