@@ -41,7 +41,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     stratify=y)
 
 knn = KNeighborsClassifier(n_neighbors=7)
-knn.fit(X_train, y_train)
+knn.fit(X_train.values, y_train)
 
 Lag1 = 0.28
 Lag2 = -0.60
