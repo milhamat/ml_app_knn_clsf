@@ -43,6 +43,7 @@ class MarketKNN:
         prediction = knn.predict(new_val)
 
         print(''.join(prediction))
+        print("model score:", knn.score(self.X_test, self.y_test))
 
 
 # exe = MarketKNN()
