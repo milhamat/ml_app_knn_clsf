@@ -7,27 +7,6 @@ from sklearn.model_selection import train_test_split
 path = 'D:/STUDY/Self Study/3.MachineLearning_and_DataScience/Python/x.Project/ml_app_knn_clsf/'
 data = pd.read_csv(path + "Smarket.csv")
 
-
-# def chg_dtyp(df):
-#     """
-#     df : is the feature or column from the y target
-#     this helper help change the data type
-#     from object(string) into integer
-#     0 for Down
-#     1 for Up
-#     """
-#     list = []
-#     for data in df:
-#         if data == 'Up':
-#             list.append(1)
-#         else:
-#             list.append(0)
-#         return list
-
-
-# data_list = chg_dtyp(data.Direction)
-# data['Outcome'] = data_list
-# new_data = data.drop(columns=["Year", "Direction", "Unnamed: 0"], axis=1)
 new_data = data.drop(columns=["Year", "Unnamed: 0"], axis=1)
 
 scale = StandardScaler()
