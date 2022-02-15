@@ -38,14 +38,8 @@ class MarketKNN:
         knn.fit(self.X_train.values, self.y_train.values)
 
         new_val = np.array([[self.lag1, self.lag2, self.lag3, self.lag4, self.lag5, self.vol, self.tdy]])
-        #print(f'new_val shape : {new_val.shape}')
 
         prediction = knn.predict(new_val)
 
         print(''.join(prediction))
         print("model score: {:.2f}".format(knn.score(self.X_test.values, self.y_test.values)))
-
-
-# exe = MarketKNN()
-#
-# exe.predict()
