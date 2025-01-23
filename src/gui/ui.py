@@ -24,16 +24,22 @@ for n in range(7):
 
 # Function to update the predict label
 def update_prediction():
-    # pred = model.predict(data['lag1'], data['lag2'], data['lag3'], data['lag4'], data['lag5'], data['vol'], data['tdy'] )
     data = {name_feature[i]: entries[i].get() for i in range(len(name_feature))}
-    print(data)
-    # predict_result.config(text=pred)  # Update the label's text
+    pred = model.predict(float(data['lag1']), 
+                         float(data['lag2']), 
+                         float(data['lag3']), 
+                         float(data['lag4']), 
+                         float(data['lag5']), 
+                         float(data['vol']), 
+                         float(data['tdy']))
+    
+    predict_result.config(text=f"Predict Result : {pred}")  # Update the label's text
     
 
 button = Button(screen, text="Predict", command=update_prediction)
 button.grid(row=len(name_feature), column=0, columnspan=2, pady=10)
 
-predict_result = Label(screen, text="Up")
+predict_result = Label(screen, text="Predict Result :")
 predict_result.grid(row=len(name_feature)+1)
 
 

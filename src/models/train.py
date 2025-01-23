@@ -1,3 +1,4 @@
+import os
 import pickle
 import numpy as np
 import pandas as pd
@@ -40,7 +41,9 @@ class TrainModel:
         print(classification_report(y_test, y_pred, target_names=['Down', 'Up']))
         
         # save the model
-        with open('artifacts/model.pkl','wb') as f:
+        model_path = os.path.join("artifacts", "models", "model.pkl")
+        os.makedirs(os.path.dirname(model_path), exist_ok=True)
+        with open(model_path,'wb') as f:
             pickle.dump(knn, f)
         
         
