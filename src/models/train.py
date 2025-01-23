@@ -9,18 +9,6 @@ from sklearn.metrics import classification_report
 
 class TrainModel:
 
-
-    # def __init__(self, lag1, lag2, lag3, lag4, lag5, vol, tdy):
-    #     self.lag1 = 0
-    #     self.lag2 = 0
-    #     self.lag3 = 0
-    #     self.lag4 = 0
-    #     self. lag5 = 0
-    #     self.vol = 0
-    #     self.tdy = 0
-    #     #self.path = 'D:/STUDY/Self Study/3.MachineLearning_and_DataScience/Python/x.Project/ml_app_knn_clsf/'
-    #     #self.data = pd.read_csv(self.path + "Smarket.csv")
-    #     self.path = "./Smarket.csv"
     
     def __init__(self, path= "artifacts/Smarket.csv"):
         self.path = path
@@ -45,12 +33,8 @@ class TrainModel:
         knn = KNeighborsClassifier(n_neighbors=7)
         knn.fit(X_train.values, y_train.values)
 
-        # new_val = np.array([[self.lag1, self.lag2, self.lag3, self.lag4, self.lag5, self.vol, self.tdy]])
-
-        # prediction = knn.predict(new_val)
         y_pred = knn.predict(X_test)
 
-        # print(''.join(prediction))
         print("model score: {:.2f}".format(knn.score(X_test.values, y_test.values)))
         print(classification_report(y_test, y_pred, target_names=['Down', 'Up']))
         
