@@ -31,11 +31,14 @@ class TrainModel:
         # create the model
         knn = KNeighborsClassifier(n_neighbors=7)
         knn.fit(X_train.values, y_train.values)
+        
         # make predictions
         y_pred = knn.predict(X_test)
+        
         # print the model score
         print("model score: {:.2f}".format(knn.score(X_test.values, y_test.values)))
         print(classification_report(y_test, y_pred, target_names=['Down', 'Up']))
+        
         # save the model
         with open('artifacts/model.pkl','wb') as f:
             pickle.dump(knn, f)
