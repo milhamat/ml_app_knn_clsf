@@ -16,8 +16,9 @@ class MarketKNN:
         self. lag5 = 0
         self.vol = 0
         self.tdy = 0
-        self.path = 'D:/STUDY/Self Study/3.MachineLearning_and_DataScience/Python/x.Project/ml_app_knn_clsf/'
-        self.data = pd.read_csv(self.path + "Smarket.csv")
+        #self.path = 'D:/STUDY/Self Study/3.MachineLearning_and_DataScience/Python/x.Project/ml_app_knn_clsf/'
+        #self.data = pd.read_csv(self.path + "Smarket.csv")
+        self.data = pd.read_csv("./Smarket.csv")
 
         self.new_data = self.data.drop(columns=["Year", "Unnamed: 0"], axis=1)
         self.scale = StandardScaler()
