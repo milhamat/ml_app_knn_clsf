@@ -1,3 +1,4 @@
+import pickle
 import numpy as np
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
@@ -22,12 +23,9 @@ class MarketKNN:
 
     def predict(self):
 
-        knn = KNeighborsClassifier(n_neighbors=7)
-        knn.fit(self.X_train.values, self.y_train.values)
+        with open('model.pkl', 'rb') as f:
+            model = pickle.load(f)
 
         new_val = np.array([[self.lag1, self.lag2, self.lag3, self.lag4, self.lag5, self.vol, self.tdy]])
-
-        prediction = knn.predict(new_val)
-
-        print(''.join(prediction))
-        print("model score: {:.2f}".format(knn.score(self.X_test.values, self.y_test.values)))
+        prediction = model.predict(new_val)
+        return ''.join(prediction)
