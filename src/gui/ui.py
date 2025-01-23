@@ -21,19 +21,20 @@ for n in range(7):
     entry.grid(row=n, column=1, pady=5)
     entries.append(entry) 
     
-def pred():
-    return 'Down'
 
 # Function to update the predict label
 def update_prediction():
-    new_prediction = pred()  # Get the predicted value
-    predict.config(text=new_prediction)  # Update the label's text
+    # pred = model.predict(data['lag1'], data['lag2'], data['lag3'], data['lag4'], data['lag5'], data['vol'], data['tdy'] )
+    data = {name_feature[i]: entries[i].get() for i in range(len(name_feature))}
+    print(data)
+    # predict_result.config(text=pred)  # Update the label's text
+    
 
 button = Button(screen, text="Predict", command=update_prediction)
 button.grid(row=len(name_feature), column=0, columnspan=2, pady=10)
 
-predict = Label(screen, text="Up")
-predict.grid(row=len(name_feature)+1)
+predict_result = Label(screen, text="Up")
+predict_result.grid(row=len(name_feature)+1)
 
 
 screen.mainloop()
