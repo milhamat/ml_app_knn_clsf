@@ -2,15 +2,6 @@ from tkinter import *
 
 screen = Tk()
 screen.title("SMarket Prediction")
-
-# self.lag1 = 0
-#         self.lag2 = 0
-#         self.lag3 = 0
-#         self.lag4 = 0
-#         self. lag5 = 0
-#         self.vol = 0
-#         self.tdy = 0
-
 # Adjust size
 screen.geometry("500x500")
 # set minimum window size value
@@ -18,11 +9,24 @@ screen.minsize(300, 300)
 # set maximum window size value
 screen.maxsize(500, 500)
 
-Label(screen, text='First Name').grid(row=0)
-Label(screen, text='Last Name').grid(row=1)
-e1 = Entry(screen)
-e2 = Entry(screen)
-e1.grid(row=0, column=1)
-e2.grid(row=1, column=1)
+name_feature = ['lag1', 'lag2', 'lag3', 'lag4', 'lag5', 'vol', 'tdy']
+entries = []
+
+for n in range(7):
+    print(n)
+    Label(screen, text=name_feature[n]).grid(row=n, pady=5)
+    
+    entry = Entry(screen)
+    entry.grid(row=n, column=1, pady=5)
+    entries.append(entry) 
+
+button = Button(screen, text="Predict")
+button.grid(row=len(name_feature), column=0, columnspan=2, pady=10)
+
+predict = Label(screen, text="Up")
+predict.grid(row=len(name_feature)+1)
+
+
+
 
 screen.mainloop()
