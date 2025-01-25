@@ -162,4 +162,7 @@ cython_debug/
 ml_app_knn_clf.egg-info/
 .vscode/
 .idea/
+__pycache__/
+build/
+dist/
 
