@@ -1,15 +1,16 @@
-# import machine as mcn
+import os
 from src.models.train import TrainModel
-# lag1 = 0.28
-# lag2 = -0.60
-# lag3 = -2.90
-# lag4 = 2.00
-# lag5 = 5.79
-# vol = 1.59
-# tdy = 2.75
+from src.gui.ui import Interface
 
-# ML = mcn.MarketKNN(lag1, lag2, lag3, lag4, lag5, vol, tdy)
 
-# ML.predict()
-train = TrainModel()
-train.train()
+
+file_path = os.path.join("artifacts", "models", "model.pkl")
+
+if os.path.exists(file_path):
+    print(f"The file '{file_path}' exists.")
+    ui = Interface()
+    ui.lunch()
+else:
+    print(f"The file '{file_path}' does not exist.")
+    train = TrainModel()
+    train.train()
