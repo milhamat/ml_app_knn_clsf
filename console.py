@@ -2,8 +2,6 @@ import os
 from src.models.train import TrainModel
 from src.gui.ui import Interface
 
-
-
 file_path = os.path.join("artifacts", "models", "model.pkl")
 
 if os.path.exists(file_path):
